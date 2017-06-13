@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: "nfs-pv-1"
+  labels:
+    type: local
+  annotations:
+    volume.beta.kubernetes.io/mount-options: "rsize=32768"
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: /srv/nfs
+    server: 10.240.0.26
+

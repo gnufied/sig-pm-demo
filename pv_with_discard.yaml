@@ -1,0 +1,17 @@
+apiVersion: "v1"
+kind: "PersistentVolume"
+metadata:
+  name: hekumar-discard
+  annotations:
+    volume.beta.kubernetes.io/mount-options: "discard"
+spec:
+  capacity:
+    storage: "10Gi"
+  accessModes:
+    - "ReadWriteOnce"
+  gcePersistentDisk:
+    fsType: "ext4"
+    pdName: "mount-option-demo-1"
+  claimRef:
+    name: claim1
+    namespace: default
